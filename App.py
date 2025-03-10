@@ -21,9 +21,23 @@ def aplicar_estilo():
     )
 
 aplicar_estilo()
-# Caminho das imagens
-logo_blue_path = r"C:\Users\ADM\Documents\questionario_perfis_2\logo_blue.png"
-disc_logo_path = r"C:\Users\ADM\Documents\questionario_perfis_2\disc_logo.jpeg"
+import os
+import streamlit as st
+
+# Caminho correto para as imagens dentro do repositório
+logo_blue_path = os.path.join(os.path.dirname(__file__), "logo_blue.png")
+disc_logo_path = os.path.join(os.path.dirname(__file__), "disc_logo.jpeg")
+
+# Criar layout com 3 colunas (imagem esquerda, título centralizado, imagem direita)
+col1, col2, col3 = st.columns([2, 5, 2])
+
+# Exibir imagens nas colunas laterais
+with col1:
+    st.image(logo_blue_path, width=100)  # Ajuste do tamanho da imagem
+
+with col3:
+    st.image(disc_logo_path, width=100)  # Ajuste do tamanho da imagem
+
 
 # Criar layout com 3 colunas (imagem esquerda, título centralizado, imagem direita)
 col1, col2, col3 = st.columns([2, 5, 2])
